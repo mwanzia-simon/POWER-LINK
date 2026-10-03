@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/mwanzia-simon/POWER-LINK/issues"
   },
-  "homepage": "https://github.com/mwanzia-simon/POWER-LINK#readme"
+  "homepage": "https://github.com/mwanzia-simon/POWER-LINK#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.0"
+  }
 }
