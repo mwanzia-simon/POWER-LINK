@@ -4,7 +4,7 @@
   "description": "> Control your local computer through ChatGPT.",
   "main": "./src/server.js",
   "scripts": {
-      "start": "node ./src/server.js",
+    "start": "node ./src/server.js",
     "dev": "node --watch ./src/server.js"
   },
   "repository": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/mwanzia-simon/POWER-LINK#readme",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.32.0"
+    "@modelcontextprotocol/sdk": "^1.32.0",
+    "express": "^5.2.1"
   }
 }
