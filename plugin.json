@@ -1,0 +1,9 @@
+{
+  "name": "powerlink",
+  "version": "0.1.0",
+  "description": "Control a local Windows computer through safe system-control tools.",
+  "author": {
+    "name": "Simon"
+  },
+  "license": "MIT"
+}
