@@ -1,6 +1,10 @@
+import express from "express";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+
 import { registerSystemTools } from "./tools/system.js";
+
+const app = express();
+const PORT = 3000;
 
 const server = new McpServer({
   name: "powerlink",
@@ -9,6 +13,13 @@ const server = new McpServer({
 
 registerSystemTools(server);
 
-const transport = new StdioServerTransport();
+app.get("/", (req, res) => {
+  res.json({
+    name: "PowerLink",
+    status: "running",
+  });
+});
 
-await server.connect(transport);
+app.listen(PORT, () => {
+  console.log(`PowerLink running on http://localhost:${PORT}`);
+});
