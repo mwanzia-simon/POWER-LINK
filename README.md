@@ -1,4 +1,4 @@
-# ⚡ PowerLink
+#  PowerLink
 
 > Control your local computer through ChatGPT.
 
@@ -6,7 +6,7 @@
 
 The initial goal is simple: expose a small set of safe system-control tools that ChatGPT can call through a local Node.js application.
 
-## 🚀 Initial Features
+##  Initial Features
 
 PowerLink will initially support:
 
