@@ -51,38 +51,58 @@ export function registerSystemTools(server) {
   );
 
   server.registerTool(
-    "powerlink_shutdown",
-    {
-      title: "Shutdown Computer",
-      description: "Shuts down the local Windows computer.",
+  "powerlink_shutdown",
+  {
+    title: "Shutdown Computer",
+    description:
+      "Shuts down the local Windows computer. Requires explicit confirmation.",
+    inputSchema: {
+      confirmed: {
+        type: "boolean",
+        description:
+          "Must be true to confirm that the computer should be shut down.",
+      },
     },
-    async () => {
-      try {
-        await executeCommand("shutdown /s /t 0");
-
-        return {
-          content: [
-            {
-              type: "text",
-              text: "Computer shutdown initiated.",
-            },
-          ],
-        };
-      } catch (error) {
-        console.error("Shutdown command failed:", error);
-
-        return {
-          isError: true,
-          content: [
-            {
-              type: "text",
-              text: "Failed to shut down the computer.",
-            },
-          ],
-        };
-      }
+  },
+  async ({ confirmed }) => {
+    if (confirmed !== true) {
+      return {
+        isError: true,
+        content: [
+          {
+            type: "text",
+            text: "Shutdown cancelled. Explicit confirmation is required.",
+          },
+        ],
+      };
     }
-  );
+
+    try {
+      await executeCommand("shutdown /s /t 0");
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: "Computer shutdown initiated.",
+          },
+        ],
+      };
+    } catch (error) {
+      console.error("Shutdown command failed:", error);
+
+      return {
+        isError: true,
+        content: [
+          {
+            type: "text",
+            text: "Failed to shut down the computer.",
+          },
+        ],
+      };
+    }
+  }
+);
 
   server.registerTool(
     "powerlink_restart",
