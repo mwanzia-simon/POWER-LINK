@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 });
 
 // MCP endpoint
-app.all("/mcp", async (req, res) => {
+app.all("/mcp",authenticate, async (req, res) => {
   const server = createPowerLinkServer();
 
   const transport = new StreamableHTTPServerTransport({
