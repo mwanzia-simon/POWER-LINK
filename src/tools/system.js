@@ -37,7 +37,15 @@ export function registerSystemTools(server) {
       } catch (error) {
         console.error("Lock command failed:", error);
 
-        throw new Error("Failed to lock the computer.");
+        return {
+          isError: true,
+          content: [
+            {
+              type: "text",
+              text: "Failed to lock the computer.",
+            },
+          ],
+        };
       }
     }
   );
@@ -63,7 +71,15 @@ export function registerSystemTools(server) {
       } catch (error) {
         console.error("Shutdown command failed:", error);
 
-        throw new Error("Failed to shutdown the computer.");
+        return {
+          isError: true,
+          content: [
+            {
+              type: "text",
+              text: "Failed to shut down the computer.",
+            },
+          ],
+        };
       }
     }
   );
@@ -89,7 +105,15 @@ export function registerSystemTools(server) {
       } catch (error) {
         console.error("Restart command failed:", error);
 
-        throw new Error("Failed to restart the computer.");
+        return {
+          isError: true,
+          content: [
+            {
+              type: "text",
+              text: "Failed to restart the computer.",
+            },
+          ],
+        };
       }
     }
   );
