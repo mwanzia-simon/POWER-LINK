@@ -1,8 +1,11 @@
 const authenticate = (req, res, next) => {
+  console.log("Headers:", req.headers);
+
   const providedKey = req.headers["x-api-key"];
   const validKey = process.env.POWERLINK_API_KEY;
 
-  console.log(providedKey)
+  console.log("Provided key:", providedKey);
+  console.log("Valid key:", validKey ? "Loaded" : "Missing");
 
   if (!providedKey) {
     return res.status(401).json({
