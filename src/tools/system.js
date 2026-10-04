@@ -104,37 +104,57 @@ export function registerSystemTools(server) {
   }
 );
 
-  server.registerTool(
-    "powerlink_restart",
-    {
-      title: "Restart Computer",
-      description: "Restarts the local Windows computer.",
+server.registerTool(
+  "powerlink_restart",
+  {
+    title: "Restart Computer",
+    description:
+      "Restarts the local Windows computer. Requires explicit confirmation.",
+    inputSchema: {
+      confirmed: {
+        type: "boolean",
+        description:
+          "Must be true to confirm that the computer should be restarted.",
+      },
     },
-    async () => {
-      try {
-        await executeCommand("shutdown /r /t 0");
-
-        return {
-          content: [
-            {
-              type: "text",
-              text: "Computer restart initiated.",
-            },
-          ],
-        };
-      } catch (error) {
-        console.error("Restart command failed:", error);
-
-        return {
-          isError: true,
-          content: [
-            {
-              type: "text",
-              text: "Failed to restart the computer.",
-            },
-          ],
-        };
-      }
+  },
+  async ({ confirmed }) => {
+    if (confirmed !== true) {
+      return {
+        isError: true,
+        content: [
+          {
+            type: "text",
+            text: "Restart cancelled. Explicit confirmation is required.",
+          },
+        ],
+      };
     }
-  );
+
+    try {
+      await executeCommand("shutdown /r /t 0");
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: "Computer restart initiated.",
+          },
+        ],
+      };
+    } catch (error) {
+      console.error("Restart command failed:", error);
+
+      return {
+        isError: true,
+        content: [
+          {
+            type: "text",
+            text: "Failed to restart the computer.",
+          },
+        ],
+      };
+    }
+  }
+);
 }
