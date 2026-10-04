@@ -2,7 +2,7 @@ import express from "express";
 import "dotenv/config";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
-
+import authenticate from "./middleware/auth.js";
 import { registerSystemTools } from "./tools/system.js";
 
 const app = express();
@@ -51,6 +51,13 @@ app.all("/mcp", async (req, res) => {
       });
     }
   }
+});
+
+app.get("/test", authenticate, (req, res) => {
+  res.json({
+    success: true,
+    message: "Authentication successful!",
+  });
 });
 
 app.listen(PORT, () => {
