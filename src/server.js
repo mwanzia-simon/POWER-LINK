@@ -9,7 +9,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.POWERLINK_API_KEY;
 
-app.use(express.json());
+app.use((req, res, next) => {
+  if (req.path === "/mcp") {
+    return next();
+  }
+
+  express.json()(req, res, next);
+});
 
 function createPowerLinkServer() {
   const server = new McpServer({
