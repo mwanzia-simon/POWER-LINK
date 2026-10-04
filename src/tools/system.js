@@ -58,7 +58,7 @@ export function registerSystemTools(server) {
       inputSchema: {
         confirmed: z
           .boolean()
-          .description(
+          .describe(
             "Must be true to confirm that the computer should be shut down.",
           ),
       },
@@ -112,7 +112,7 @@ export function registerSystemTools(server) {
       inputSchema: {
         confirmed: z
           .boolean()
-          .description(
+          .describe(
             "Must be true to confirm that the computer should be restarted.",
           ),
       },
