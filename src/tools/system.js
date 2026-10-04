@@ -1,5 +1,18 @@
 import { exec } from "node:child_process";
 
+function executeCommand(command) {
+  return new Promise((resolve, reject) => {
+    exec(command, (error) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+
+      resolve();
+    });
+  });
+}
+
 export function registerSystemTools(server) {
   server.registerTool(
     "powerlink_lock",
@@ -8,16 +21,24 @@ export function registerSystemTools(server) {
       description: "Locks the local Windows computer.",
     },
     async () => {
-      exec("rundll32.exe user32.dll,LockWorkStation");
+      try {
+        await executeCommand(
+          "rundll32.exe user32.dll,LockWorkStation"
+        );
 
-      return {
-        content: [
-          {
-            type: "text",
-            text: "Computer locked successfully.",
-          },
-        ],
-      };
+        return {
+          content: [
+            {
+              type: "text",
+              text: "Computer locked successfully.",
+            },
+          ],
+        };
+      } catch (error) {
+        console.error("Lock command failed:", error);
+
+        throw new Error("Failed to lock the computer.");
+      }
     }
   );
 
@@ -28,16 +49,22 @@ export function registerSystemTools(server) {
       description: "Shuts down the local Windows computer.",
     },
     async () => {
-      exec("shutdown /s /t 0");
+      try {
+        await executeCommand("shutdown /s /t 0");
 
-      return {
-        content: [
-          {
-            type: "text",
-            text: "Computer shutdown initiated.",
-          },
-        ],
-      };
+        return {
+          content: [
+            {
+              type: "text",
+              text: "Computer shutdown initiated.",
+            },
+          ],
+        };
+      } catch (error) {
+        console.error("Shutdown command failed:", error);
+
+        throw new Error("Failed to shutdown the computer.");
+      }
     }
   );
 
@@ -48,16 +75,22 @@ export function registerSystemTools(server) {
       description: "Restarts the local Windows computer.",
     },
     async () => {
-      exec("shutdown /r /t 0");
+      try {
+        await executeCommand("shutdown /r /t 0");
 
-      return {
-        content: [
-          {
-            type: "text",
-            text: "Computer restart initiated.",
-          },
-        ],
-      };
+        return {
+          content: [
+            {
+              type: "text",
+              text: "Computer restart initiated.",
+            },
+          ],
+        };
+      } catch (error) {
+        console.error("Restart command failed:", error);
+
+        throw new Error("Failed to restart the computer.");
+      }
     }
   );
 }
