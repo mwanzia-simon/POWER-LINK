@@ -56,4 +56,7 @@ app.all("/mcp", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`PowerLink running on http://localhost:${PORT}`);
   console.log(`MCP endpoint: http://localhost:${PORT}/mcp`);
+
+  console.log("PORT:", process.env.PORT);
+console.log("API KEY:", process.env.POWERLINK_API_KEY ? "Loaded" : "Missing");
 });
