@@ -1,18 +1,24 @@
-#  PowerLink
+<div align="center">
 
-> Control your local computer through ChatGPT.
+<img src="./assets/powerlink-logo.svg" alt="PowerLink Logo" width="180">
+
+# PowerLink
+
+**Control your PC through ChatGPT.**
+
+</div>
 
 **PowerLink** is a lightweight local application that connects ChatGPT with your computer, allowing AI commands to trigger actions on your machine.
 
 The initial goal is simple: expose a small set of safe system-control tools that ChatGPT can call through a local Node.js application.
 
-##  Initial Features
+## Initial Features
 
 PowerLink will initially support:
 
-* 🔒 **Lock** — Lock the computer
-* ⏻ **Shutdown** — Shut down the computer
-* 🔄 **Restart** — Restart the computer
+- 🔒 **Lock** — Lock the computer
+- ⏻ **Shutdown** — Shut down the computer
+- 🔄 **Restart** — Restart the computer
 
 More system controls may be added in future versions.
 
@@ -59,11 +65,11 @@ Windows locks the computer
 
 ## 🛠️ Tech Stack
 
-* **Node.js**
-* **JavaScript**
-* **MCP (Model Context Protocol)**
-* **Windows system commands**
-* **npm**
+- **Node.js**
+- **JavaScript**
+- **MCP (Model Context Protocol)**
+- **Windows system commands**
+- **npm**
 
 ## 📁 Project Structure
 
@@ -92,12 +98,12 @@ PowerLink can execute commands directly on the local computer, so security is an
 
 The application should:
 
-* Run locally on the user's machine
-* Only expose explicitly defined tools
-* Validate tool inputs
-* Avoid exposing unrestricted shell access
-* Require appropriate authorization for sensitive operations
-* Keep secrets and configuration out of source control
+- Run locally on the user's machine
+- Only expose explicitly defined tools
+- Validate tool inputs
+- Avoid exposing unrestricted shell access
+- Require appropriate authorization for sensitive operations
+- Keep secrets and configuration out of source control
 
 PowerLink should **not** provide ChatGPT with unrestricted access to the operating system.
 
@@ -107,49 +113,49 @@ PowerLink is being built as both a useful tool and a learning project.
 
 The main goals are to learn about:
 
-* MCP servers
-* AI tool calling
-* Local AI integrations
-* Node.js applications
-* System-level commands
-* API/tool security
-* Environment configuration
-* Communication between AI applications and local software
+- MCP servers
+- AI tool calling
+- Local AI integrations
+- Node.js applications
+- System-level commands
+- API/tool security
+- Environment configuration
+- Communication between AI applications and local software
 
 ## 🗺️ Roadmap
 
 ### Version 1 — Basic System Control
 
-* [ ] Set up Node.js project
-* [ ] Set up MCP server
-* [ ] Create `lock` tool
-* [ ] Create `shutdown` tool
-* [ ] Create `restart` tool
-* [ ] Test tools locally
-* [ ] Connect PowerLink to ChatGPT
+- [ ] Set up Node.js project
+- [ ] Set up MCP server
+- [ ] Create `lock` tool
+- [ ] Create `shutdown` tool
+- [ ] Create `restart` tool
+- [ ] Test tools locally
+- [ ] Connect PowerLink to ChatGPT
 
 ### Version 2 — More Controls
 
 Potential future tools:
 
-* [ ] Sleep computer
-* [ ] Log out
-* [ ] Get system status
-* [ ] Get battery information
-* [ ] Get operating system information
-* [ ] Open an application
-* [ ] Open a website
+- [ ] Sleep computer
+- [ ] Log out
+- [ ] Get system status
+- [ ] Get battery information
+- [ ] Get operating system information
+- [ ] Open an application
+- [ ] Open a website
 
 ### Version 3 — Advanced PowerLink
 
 Potential future improvements:
 
-* [ ] Permission system
-* [ ] Command confirmation
-* [ ] Action logging
-* [ ] Configurable commands
-* [ ] Cross-platform support
-* [ ] Windows + Linux + macOS support
+- [ ] Permission system
+- [ ] Command confirmation
+- [ ] Action logging
+- [ ] Configurable commands
+- [ ] Cross-platform support
+- [ ] Windows + Linux + macOS support
 
 ## 💡 Example Commands
 
