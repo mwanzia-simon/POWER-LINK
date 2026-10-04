@@ -1,11 +1,13 @@
 import express from "express";
+import "dotenv/config";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 
 import { registerSystemTools } from "./tools/system.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const API_KEY = process.env.POWERLINK_API_KEY;
 
 app.use(express.json());
 
