@@ -16,13 +16,13 @@ The initial goal is simple: expose a small set of safe system-control tools that
 
 PowerLink will initially support:
 
-- 🔒 **Lock** — Lock the computer
-- ⏻ **Shutdown** — Shut down the computer
-- 🔄 **Restart** — Restart the computer
+-  **Lock** — Lock the computer
+- ⏻**Shutdown** — Shut down the computer
+-  **Restart** — Restart the computer
 
 More system controls may be added in future versions.
 
-## 🧠 How It Works
+##  How It Works
 
 The basic architecture is:
 
@@ -63,7 +63,7 @@ PowerLink → lock()
 Windows locks the computer
 ```
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Node.js**
 - **JavaScript**
@@ -71,7 +71,7 @@ Windows locks the computer
 - **Windows system commands**
 - **npm**
 
-## 📁 Project Structure
+##  Project Structure
 
 The initial project will remain intentionally simple:
 
@@ -92,7 +92,7 @@ powerLink/
 
 The structure can evolve as PowerLink gains more functionality.
 
-## 🔐 Security
+##  Security
 
 PowerLink can execute commands directly on the local computer, so security is an important part of the project.
 
@@ -107,7 +107,7 @@ The application should:
 
 PowerLink should **not** provide ChatGPT with unrestricted access to the operating system.
 
-## 🎯 Project Goals
+##  Project Goals
 
 PowerLink is being built as both a useful tool and a learning project.
 
@@ -122,7 +122,7 @@ The main goals are to learn about:
 - Environment configuration
 - Communication between AI applications and local software
 
-## 🗺️ Roadmap
+##  Roadmap
 
 ### Version 1 — Basic System Control
 
@@ -157,7 +157,7 @@ Potential future improvements:
 - [ ] Cross-platform support
 - [ ] Windows + Linux + macOS support
 
-## 💡 Example Commands
+##  Example Commands
 
 Once configured, the goal is to be able to say things such as:
 
@@ -171,12 +171,12 @@ Once configured, the goal is to be able to say things such as:
 
 PowerLink receives the corresponding tool call and performs the requested operation locally.
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 PowerLink is a local system-control project. Commands such as shutdown and restart directly affect the computer running the application.
 
 Only run PowerLink on a computer you control, and carefully consider which system operations you expose as AI tools.
 
-## 📜 License
+##  License
 
 This project is currently intended as a personal learning project.
