@@ -17,7 +17,7 @@ The initial goal is simple: expose a small set of safe system-control tools that
 PowerLink will initially support:
 
 -  **Lock** — Lock the computer
-- ⏻**Shutdown** — Shut down the computer
+- **Shutdown** — Shut down the computer
 -  **Restart** — Restart the computer
 
 More system controls may be added in future versions.
